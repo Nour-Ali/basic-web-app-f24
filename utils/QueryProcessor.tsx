@@ -18,5 +18,18 @@ export default function QueryProcessor(query: string): string {
     //TODO update the corresponding test case in __tests__
     return ( "ntali-313" );
   }
+
+  if (query.toLowerCase().includes("numbers is the largest:")) {
+    
+    const matchedNumbers = query.match(/\d+/g);
+    if (matchedNumbers) {
+      const numbers: number[] = matchedNumbers.map(Number);
+      const largestNumber = Math.max(...numbers); // Find the largest number
+      return largestNumber.toString();
+
+    }
+    return "";
+
+  }
   return "";
 }
